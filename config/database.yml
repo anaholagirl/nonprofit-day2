@@ -1,0 +1,11 @@
+default: &default
+  adapter: postgresql
+  encoding: unicode
+
+development:
+  <<: *default
+  database: donater_development
+
+test:
+  <<: *default
+  database: donater_test

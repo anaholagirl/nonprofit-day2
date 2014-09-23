@@ -1,0 +1,13 @@
+<h1>Here is a list of all non-profits in Portland:</h1>
+
+<div id='nonprofit_list'>
+
+<ul>
+  <% @nonprofits.each do |nonprofit| %>
+    <li><%= nonprofit.name %></li>
+  <% end %>
+</ul>
+
+</div>
+
+<%= link_to "Add Nonprofit", new_nonprofit_path, :class => 'new-button', remote: true %>

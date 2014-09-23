@@ -1,0 +1,7 @@
+<h1>All donations for <%= @nonprofit.name %></h1>
+
+<ul>
+<% @donations.each do |donation| %>
+  <li id='donation-list'><%= donation.amount %></li>
+<% end %>
+</ul>

@@ -1,12 +1,9 @@
 <h1>Give a donation with Stripe:</h1>
 <div class='form-group'>
   <form action='/nonprofits/<%= @nonprofit.id %>/donations' method="POST" id="payment-form">
-    <div class='payment-errors'>
       <span class="payment-errors"></span>
-    </div>
     <input name="authenticity_token" value="<%= form_authenticity_token %>" type="hidden">
     <input name="donation[nonprofit_id]" value="<%= @nonprofit.id %>" type="hidden">
-    <input name='donation[token]' value='<%= form_authenticity_token %>' type='hidden'>
     <div class="form-row">
       <label>
         <span>Amount</span>

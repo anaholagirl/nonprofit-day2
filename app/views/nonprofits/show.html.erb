@@ -1,13 +1,13 @@
 <h1><%= @nonprofit.name %></h1>
 
-<%= link_to "Click here to Donate", new_nonprofit_donation_path(@nonprofit), :class => 'make-donation', remote: true %>
+<%= render 'donations/form' %>
 
 
 <script type='text/javascript'>
-  Stripe.setPublishableKey(ENV['STRIPE_PUBLISHABLE_KEY']);
+  Stripe.setPublishableKey('pk_test_Y86MFV9tuaC5SfCA2jQPsTBb');
   var stripeResponseHandler = function(status, response) {
     var $form = $('#payment-form');
-
+    alert('hello again')
     if (response.error) {
       // Show the errors on the form
       $form.find('.payment-errors').text(response.error.message);
@@ -15,8 +15,10 @@
     } else {
       // token contains id, last4, and card type
       var token = response.id;
+      console.log(token)
       // Insert the token into the form so it gets submitted to the server
-      $form.append($('<input type="hidden" name="stripeToken" />').val(token));
+      $form.append($('<input type="hidden" name="donation[token]" />').val(token));
+      console.log($form)
       // and re-submit
       $form.get(0).submit();
     }

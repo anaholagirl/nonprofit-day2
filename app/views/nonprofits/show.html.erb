@@ -1,1 +1,5 @@
 <h1><%= @nonprofit.name %></h1>
+
+<%= link_to "Click here to Donate", new_nonprofit_donation_path(@nonprofit) %>
+
+<%= render "/donations/form" %>

@@ -2,13 +2,14 @@ class Donation < ActiveRecord::Base
   validates :nonprofit_id, presence: true
   validates :amount, presence: true
   belongs_to :nonprofit
+  belongs_to :user
 
   before_save :make_donation
 
   def make_donation
     # Set your secret key: remember to change this to your live secret key in production
     # See your keys here https://dashboard.stripe.com/account
-    Stripe.api_key = "sk_test_4BQTUq19uIEaduN0K9kikaxm"
+    Stripe.api_key = (ENV["SECRET_KEY"])
 
     # Get the credit card details submitted by the form
     # token = params[:stripeToken]

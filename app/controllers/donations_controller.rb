@@ -27,6 +27,6 @@ class DonationsController < ApplicationController
 
   private
   def donation_params
-    params.require(:donation).permit(:nonprofit_id, :amount, :token, :from)
+    params.require(:donation).permit(:nonprofit_id, :amount, :token).merge(:user_id => current_user.id)
   end
 end

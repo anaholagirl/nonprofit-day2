@@ -2,9 +2,16 @@
 
 <%= render 'donations/form' %>
 
+<h1>OR</h1>
+<h2>Create a subscription to donate monthly:</h2>
+<h3>Choose a plan:</h3>
+<ul>
+  <% @plans.each do |plan| %>
+  <li><%= plan.name %></li>
+
+
 
 <script type='text/javascript'>
-  Stripe.setPublishableKey('pk_test_Y86MFV9tuaC5SfCA2jQPsTBb');
   var stripeResponseHandler = function(status, response) {
     var $form = $('#payment-form');
     alert('hello again')
